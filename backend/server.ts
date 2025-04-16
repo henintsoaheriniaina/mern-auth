@@ -1,3 +1,4 @@
+import cookieParser from "cookie-parser";
 import e from "express";
 import { config } from "./config/config";
 import { connectToDb } from "./db/config/db";
@@ -9,6 +10,7 @@ const app = e();
 
 app.use(e.json());
 app.use(e.urlencoded({ extended: true }));
+app.use(cookieParser());
 app.use(logMiddleware);
 
 app.use("/api/users", userRoutes);
